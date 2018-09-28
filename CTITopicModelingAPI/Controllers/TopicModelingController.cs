@@ -68,7 +68,7 @@ namespace CTITopicModelingAPI.Controllers
                 string baseUrl = ConfigurationManager.AppSettings["BaseUrl"].ToString();
 
                 string docsList = "[";
-                foreach (string file in Directory.EnumerateFiles(baseUrl + @"Files\"))
+                foreach (string file in Directory.EnumerateFiles(baseUrl + @"Files/"))
                 {
                     string contents = File.ReadAllText(file, System.Text.Encoding.Default);
                     docsList = docsList + "\"" + File.ReadAllText(file, System.Text.Encoding.Default) + "\"" + ",";
