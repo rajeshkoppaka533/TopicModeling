@@ -75,7 +75,6 @@ namespace CTITopicModelingAPI.Controllers
                 }
                 docsList = docsList + "]";
 
-
                 // LDA Input custom settings
                 var input = "{"
                 + "  \"docsList\":" + docsList + ","
