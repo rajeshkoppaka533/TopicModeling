@@ -65,9 +65,9 @@ namespace CTITopicModelingAPI.Controllers
             try
             {
                 int? topicIndex = null;
-                
-               // string baseUrl = ConfigurationManager.AppSettings["BaseUrl"].ToString();
+                StringBuilder searchresult = new StringBuilder();
 
+                
                 string docsList = "[";
                 foreach (string file in Directory.GetFiles(HttpContext.Current.Server.MapPath("~/Files")))
                 {
@@ -99,6 +99,10 @@ namespace CTITopicModelingAPI.Controllers
                     if (topicsList[i][userRequest] != null)
                     {
                         topicIndex = i;
+
+                       // searchresult.Append("The count of " + userRequest + " keyword is : " + topicsList[i][userRequest] + ". \n");
+
+                        //  searchresult.Append("The " + userRequest + " present in Topic " + (topicIndex + 1) + " are " + topicsList[Convert.ToInt32(topicIndex)] + "\n");
                         break;
                     }
                 }
@@ -119,12 +123,8 @@ namespace CTITopicModelingAPI.Controllers
                     var data1 = response1.result.ToString().Replace("{[", "[").Replace("}]", "]");
 
                     var topicDistributionList = JObject.Parse(data1)["topic_distribution"].Children().ToList();
-
-                    StringBuilder searchresult = new StringBuilder();
-
-                    searchresult.Append("The " + userRequest + " present in Topic " + (topicIndex + 1) + " are " +  topicsList[Convert.ToInt32(topicIndex)] + "\n");
-
-                    searchresult.Append(" This topic is distributed among documents are : ");
+                                  
+                    searchresult.Append(" This " + userRequest + " keyword presented in Topic " + (topicIndex + 1) + " and distributed among documents are : ");
 
                     for (int i = 0; i < topicDistributionList.Count; i++)
                     {
