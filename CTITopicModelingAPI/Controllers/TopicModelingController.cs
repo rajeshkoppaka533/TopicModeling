@@ -121,9 +121,11 @@ namespace CTITopicModelingAPI.Controllers
 
                     StringBuilder searchresult = new StringBuilder();
 
+                    searchresult.Append("The distribution of "+ userRequest + " is among documents in % are : ");
+
                     for (int i = 0; i < topicDistributionList.Count; i++)
                     {
-                        searchresult.Append("Doc" + i + " : " + (Convert.ToDecimal(topicDistributionList[i]["freq"][topicIndex]) * 100) + "%" + ", ");                   
+                        searchresult.Append(" Doc" + i + " : " + (Convert.ToDecimal(topicDistributionList[i]["freq"][topicIndex]) * 100) + "%" + ", ");                   
                     }
 
                     responseText = searchresult.ToString();
