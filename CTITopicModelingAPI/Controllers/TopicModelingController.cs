@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Web;
 using System.Web.Http;
 
 namespace CTITopicModelingAPI.Controllers
@@ -65,10 +66,10 @@ namespace CTITopicModelingAPI.Controllers
             {
                 int? topicIndex = null;
                 
-                string baseUrl = ConfigurationManager.AppSettings["BaseUrl"].ToString();
+               // string baseUrl = ConfigurationManager.AppSettings["BaseUrl"].ToString();
 
                 string docsList = "[";
-                foreach (string file in Directory.EnumerateFiles(baseUrl + @"Files/"))
+                foreach (string file in Directory.GetFiles(HttpContext.Current.Server.MapPath("~/Files")))
                 {
                     string contents = File.ReadAllText(file, System.Text.Encoding.Default);
                     docsList = docsList + "\"" + File.ReadAllText(file, System.Text.Encoding.Default) + "\"" + ",";
@@ -121,11 +122,11 @@ namespace CTITopicModelingAPI.Controllers
 
                     StringBuilder searchresult = new StringBuilder();
 
-                    searchresult.Append("The distribution of "+ userRequest + " is among documents in % are : ");
+                    searchresult.Append("The "+ userRequest + " present in Topic "+ topicIndex + " is distributed among documents are : ");
 
                     for (int i = 0; i < topicDistributionList.Count; i++)
                     {
-                        searchresult.Append(" Doc" + i + " : " + (Convert.ToDecimal(topicDistributionList[i]["freq"][topicIndex]) * 100) + "%" + ", ");                   
+                        searchresult.Append(" Doc" + (i + 1) + " : " + Math.Round((Convert.ToDecimal(topicDistributionList[i]["freq"][Convert.ToString(topicIndex)]) * 100),2) + "%" + ", ");                   
                     }
 
                     responseText = searchresult.ToString();
@@ -146,6 +147,7 @@ namespace CTITopicModelingAPI.Controllers
 
         }
 
+    
     }
 }
 
