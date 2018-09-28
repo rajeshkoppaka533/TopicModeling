@@ -29,11 +29,11 @@ namespace CTITopicModelingAPI.Controllers
                     //Check the Intent Name
                     switch (request.QueryResult.Intent.DisplayName.ToLower())
                     {
-                        case "default welcome intent":
+                        case "searchtext":
 
-                            if (request.QueryResult.QueryText != "" || request.QueryResult.QueryText != null)
-                            {
-                                string userRequest = request.QueryResult.QueryText.ToString();
+                            if (request.QueryResult.Parameters["search"].ToString() != "")
+                            {                       
+                                string userRequest = request.QueryResult.Parameters["search"].ToString();
                                 responseText = GetDocuments(userRequest);
                             }
                             else {
