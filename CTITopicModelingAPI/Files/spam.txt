@@ -1,0 +1,3 @@
+As part of our ongoing efforts to combat spam and phishing emails, Conduent’s spam filters are now quarantining incoming spam and phishing emails, as identified by our email system. The emails are being quarantined for up to 14 days and then are deleted automatically. 
+
+To ensure valid emails are being delivered to our employees and not quarantined, an alerting feature will be enabled on September 14, 2018. Once implemented, the system will send an alert to employees whose email was quarantined. If you believe your quarantined email is valid, contact the ITO helpdesk at Helpdesk.ITO@atos.net within the 14-day quarantine period for assistance in releasing the email to you.

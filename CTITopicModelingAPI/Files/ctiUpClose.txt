@@ -1,0 +1,5 @@
+One of our goals in launching CTI Up Close is to help you learn more about what we do. Today we’re taking a deeper dive into data analytics. We see a tremendous opportunity to offer our clients insights and solutions derived from analysis of their data. Read the new issue of CTI Up Close to find out what we’re developing in each of the following areas so we can realize the opportunity before us: 
+ 
+•	A common analytics platform for all Conduent analytics applications
+•	A competency for creating advanced analytics solutions on top of this platform
+•	Standard contract terms and conditions to obtain data rights from clients 

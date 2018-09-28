@@ -1,0 +1,4 @@
+GEMS Announcement: Availability of variable compensation details under Personal Information.
+   There was an enhancement to include current variable compensation components under                                              
+   Compensation tab.
+   Navigation : Personal Information > Compensation>Additional Compensation 
