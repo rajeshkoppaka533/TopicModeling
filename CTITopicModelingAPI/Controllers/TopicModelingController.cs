@@ -32,9 +32,9 @@ namespace CTITopicModelingAPI.Controllers
                     {
                         case "searchtext":
 
-                            if (request.QueryResult.Parameters["search"].ToString() != "")
+                            if (request.QueryResult.Parameters["any"].ToString() != "")
                             {                       
-                                string userRequest = request.QueryResult.Parameters["search"].ToString();
+                                string userRequest = request.QueryResult.Parameters["any"].ToString();
                                 responseText = GetDocuments(userRequest);
                             }
                             else {
