@@ -67,11 +67,11 @@ namespace CTITopicModelingAPI.Controllers
                 int? topicIndex = null;
                 StringBuilder searchresult = new StringBuilder();
 
-                
+                List<string> filenames = new List<string>();
                 string docsList = "[";
                 foreach (string file in Directory.GetFiles(HttpContext.Current.Server.MapPath("~/Files")))
                 {
-                    string contents = File.ReadAllText(file, System.Text.Encoding.Default);
+                    filenames.Add(Path.GetFileName(file));
                     docsList = docsList + "\"" + File.ReadAllText(file, System.Text.Encoding.Default) + "\"" + ",";
                 }
                 docsList = docsList + "]";
@@ -128,7 +128,7 @@ namespace CTITopicModelingAPI.Controllers
 
                     for (int i = 0; i < topicDistributionList.Count; i++)
                     {
-                        searchresult.Append(" Doc" + (i + 1) + " : " + Math.Round((Convert.ToDecimal(topicDistributionList[i]["freq"][Convert.ToString(topicIndex)]) * 100),2) + "%" + ", ");                   
+                        searchresult.Append(filenames[i] + " : " + Math.Round((Convert.ToDecimal(topicDistributionList[i]["freq"][Convert.ToString(topicIndex)]) * 100),2) + "%" + ", ");                   
                     }
 
                     responseText = searchresult.ToString();
